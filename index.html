@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARABIC TUBE</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#0f0f0f;
+ color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ height:65px;
+ background:#181818;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:0 22px;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+.logo{font-size:25px;font-weight:bold;color:#ff3030}
+.search{
+ width:40%;
+ padding:12px;
+ border-radius:25px;
+ border:1px solid #444;
+ background:#252525;
+ color:white;
+}
+button{
+ background:#ff3030;
+ border:0;
+ color:white;
+ padding:11px 18px;
+ border-radius:20px;
+ cursor:pointer;
+}
+.layout{display:flex}
+aside{
+ width:210px;
+ min-height:100vh;
+ background:#181818;
+ padding:20px;
+}
+aside div{padding:15px 8px;cursor:pointer}
+aside div:hover{background:#303030;border-radius:10px}
+main{flex:1;padding:25px}
+h2{margin-top:5px}
+.videos{
+ display:grid;
+ grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+ gap:22px;
+}
+.video{cursor:pointer}
+.video img{
+ width:100%;
+ aspect-ratio:16/9;
+ object-fit:cover;
+ border-radius:12px;
+ background:#292929;
+}
+.video h3{font-size:16px}
+.video p{color:#aaa;font-size:13px}
+@media(max-width:650px){
+ aside{width:65px;padding:8px}
+ aside div{font-size:0}
+ main{padding:12px}
+ .search{width:42%}
+ .videos{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">▶ ARABIC TUBE</div>
+ <input class="search" id="search"
+ placeholder="ابحث عن فيديو..." oninput="filterVideos()">
+ <button onclick="alert('قريباً: رفع الفيديوهات')">＋ رفع</button>
+</header>
+
+<div class="layout">
+<aside>
+ <div>🏠 الرئيسية</div>
+ <div>🔥 الأكثر مشاهدة</div>
+ <div>📺 اشتراكاتي</div>
+ <div>🎵 الموسيقى</div>
+ <div>🎮 الألعاب</div>
+ <div>⚙️ الإعدادات</div>
+</aside>
+
+<main>
+<h2>اكتشف الفيديوهات 🎬</h2>
+<div class="videos" id="videos">
+
+<div class="video">
+<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600">
+<h3>اكتشف عالم الفيديوهات</h3>
+<p>ARABIC TUBE • 120 مشاهدة</p>
+</div>
+
+<div class="video">
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600">
+<h3>عالم الألعاب 🎮</h3>
+<p>Gaming • 250 مشاهدة</p>
+</div>
+
+<div class="video">
+<img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600">
+<h3>عالم الموسيقى 🎵</h3>
+<p>Music • 90 مشاهدة</p>
+</div>
+
+<div class="video">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600">
+<h3>رحلات ومغامرات 🌍</h3>
+<p>Travel • 500 مشاهدة</p>
+</div>
+
+</div>
+</main>
+</div>
+
+<script>
+function filterVideos(){
+ const q=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('.video').forEach(v=>{
+  v.style.display=v.innerText.toLowerCase().includes(q)?'block':'none';
+ });
+}
+</script>
+
+</body>
+</html>
